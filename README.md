@@ -27,10 +27,10 @@ Moreover, you can find there other examples, e.g. how to persist state on rotati
   - [Showing an error on tabs if step verification failed](#showing-an-error-on-tabs-if-step-verification-failed)
   - [Stepper feedback](#stepper-feedback)
   - [Changing button text color when going to the next step should be disabled](#changing-button-text-color-when-going-to-the-next-step-should-be-disabled)
+  - [Hiding bottom navigation bar](#hiding-bottom-navigation-bar)
 - [StepperLayout attributes](#stepperlayout-attributes)
 	- [View attributes](#view-attributes)
 	- [StepperLayout style attributes](#stepperlayout-style-attributes)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Supported steppers
@@ -57,7 +57,7 @@ Moreover, you can find there other examples, e.g. how to persist state on rotati
 
 ### Download (from JCenter)
 ```groovy
-compile 'com.stepstone.stepper:material-stepper:3.2.3'
+compile 'com.stepstone.stepper:material-stepper:3.3.0'
 ```
 
 ### Create layout in XML
@@ -436,6 +436,13 @@ In order to set that color:
     mStepperLayout.setCompleteButtonVerificationFailed(!enabled);
 ```
 
+### Hiding bottom navigation bar
+Bottom navigation bar is shown by default. If in your UI you would like to
+hide the bottom navigation bar you can do that by either setting
+the `ms_showBottomNavigation` attribute in XML to `false`
+or by setting it programmatically by calling ```StepperLayout#setShowBottomNavigation(boolean)```
+with `false`.
+
 ## StepperLayout attributes
 
 ### View attributes
@@ -464,6 +471,7 @@ For advanced styling please see [StepperLayout style attributes](#stepperlayout-
 | *ms_showErrorStateOnBackEnabled*| boolean                                                             | Flag indicating whether to keep showing the error state when user moves back. Only applicable for 'tabs' type. False by default. |
 | *ms_tabNavigationEnabled*       | boolean                                                             | Flag indicating whether step navigation is possible by clicking on the tabs directly. Only applicable for 'tabs' type. True by default. |
 | *ms_stepperFeedbackType*        | flag(s): `none` or `tabs`, `content` & `disabled_bottom_navigation` | Type(s) of stepper feedback. Can be a combination of `tabs`, `content` & `disabled_bottom_navigation`. Default is `none`.|
+| *ms_showBottomNavigation*       | boolean                                                             | Flag indicating if the Bottom Navigation bar should be shown on the layout. True by default. |
 | *ms_stepperLayoutTheme*         | reference                                                           | Theme to use for even more custom styling of the stepper layout. It is recommended that it should extend @style/MSDefaultStepperLayoutTheme, which is the default theme used. |
 
 ### StepperLayout style attributes
@@ -487,16 +495,6 @@ A list of `ms_stepperLayoutTheme` attributes responsible for styling of StepperL
 | *ms_stepTabIconBackgroundStyle*   | Used by ms_stepIconBackground in layout/ms_step_tab           |
 | *ms_stepTabTitleStyle*            | Used by ms_stepTitle in layout/ms_step_tab                    |
 | *ms_stepTabDividerStyle*          | Used by ms_stepDivider in layout/ms_step_tab                  |
-
-
-## Contributing
-All contributions are welcome and encouraged!
-
-Pull requests should be merged to the ```develop``` branch (Rebase & merge preferred).
-Once ```develop``` is stable and we're ready to release the next version
-it should be merged to ```master```. Next, a new version should be
-uploaded to Bintray and a new release should be created on GitHub.
-Library releases should be made from the ```master``` branch.
   
 ## License
 Copyright 2016 StepStone Services
